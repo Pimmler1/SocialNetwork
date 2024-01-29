@@ -1,9 +1,9 @@
 import java.util.ArrayList;
-import java.time.LocalDateTime;
-public class Platform {
+
+public class NewsFeed {
     private ArrayList<Submission> submissionList;
 
-    public Platform(ArrayList<Submission> submissionList) {
+    public NewsFeed(ArrayList<Submission> submissionList) {
         this.submissionList = submissionList;
     }
     public void addSubmission(Submission submission){
@@ -15,4 +15,14 @@ public class Platform {
     public void removeSubmission(int submissionIdx){
         submissionList.remove(submissionIdx);
     }
+    public ArrayList<Submission> getSubmissionsOfUser(String username){
+        ArrayList<Submission> result = new ArrayList<>();
+        for(Submission submission:submissionList){
+            if(submission.getUsername().equals(username)){
+                result.add(submission);
+            }
+        }
+        return result;
+    }
+
 }
