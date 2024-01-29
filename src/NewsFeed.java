@@ -24,5 +24,7 @@ public class NewsFeed {
         }
         return result;
     }
-
+    public void likeSubmission(Submission submission){
+        submission.setLikes(submission.getLikes()+1);
+    }
 }
