@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class NewsFeed {
     private ArrayList<Submission> submissionList;
 
-    public NewsFeed(ArrayList<Submission> submissionList) {
-        this.submissionList = submissionList;
+    public NewsFeed() {
+        this.submissionList = new ArrayList<Submission>();
     }
     public void addSubmission(Submission submission){
         submissionList.add(submission);
@@ -26,5 +26,8 @@ public class NewsFeed {
     }
     public void likeSubmission(Submission submission){
         submission.setLikes(submission.getLikes()+1);
+    }
+    public void commentSubmission(Submission submission, String comment){
+        submission.addComment(comment);
     }
 }

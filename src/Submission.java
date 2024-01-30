@@ -37,6 +37,9 @@ public class Submission {
     public void setLikes(int likes) {
         this.likes = likes;
     }
+    public void addComment(String comment){
+        commentList.add(comment);
+    }
 
     public ArrayList<String> getCommentList() {
         return commentList;
