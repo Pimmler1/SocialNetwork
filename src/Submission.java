@@ -7,11 +7,11 @@ public class Submission {
     private int likes;
     private ArrayList<String> commentList;
 
-    public Submission(String username, LocalDateTime timestamp, int likes, ArrayList<String> commentList) {
+    public Submission(String username) {
         this.username = username;
-        this.timestamp = timestamp;
-        this.likes = likes;
-        this.commentList = commentList;
+        this.timestamp = LocalDateTime.now();
+        this.likes = 0;
+        this.commentList = new ArrayList<String>();
     }
 
     public String getUsername() {
@@ -40,12 +40,14 @@ public class Submission {
     public void addComment(String comment){
         commentList.add(comment);
     }
-
     public ArrayList<String> getCommentList() {
         return commentList;
     }
 
     public void setCommentList(ArrayList<String> commentList) {
         this.commentList = commentList;
+    }
+    public String toString(){
+        return "username: " + username + " | timestamp: " + timestamp;
     }
 }

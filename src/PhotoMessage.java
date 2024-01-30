@@ -1,11 +1,8 @@
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-
 public class PhotoMessage extends Submission{
     private String fileName;
     private String imageCaption;
-    public PhotoMessage(String username, LocalDateTime timestamp, int likes, ArrayList<String> commentList, String fileName, String imageCaption) {
-        super(username, timestamp, likes, commentList);
+    public PhotoMessage(String username, String fileName, String imageCaption) {
+        super(username);
         this.fileName = fileName;
         this.imageCaption = imageCaption;
     }
@@ -24,5 +21,8 @@ public class PhotoMessage extends Submission{
 
     public void setImageCaption(String imageCaption) {
         this.imageCaption = imageCaption;
+    }
+    public String toString(){
+        return "photo message: {" + super.toString() + "}";
     }
 }
