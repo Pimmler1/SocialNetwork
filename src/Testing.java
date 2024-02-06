@@ -47,16 +47,57 @@ public class Testing {
         Assert.assertEquals(commVal, 0);
     }
     @Test
-    public void testGetTimeString(){
+    public void testGetTimeString1(){
         NewsFeed nf = new NewsFeed();
         Message m1 = new Message("pippo123", "Hi, i'm Pippo!");
         nf.addSubmission(m1);
-        m1.setTimestamp(LocalDateTime.of(2024, 1, 30, 10, 30));
+        m1.setTimestamp(LocalDateTime.now().minusSeconds(1));
         String timeString = m1.getTimeString();
-        Assert.assertEquals(timeString, "posted 1 hour ago");
-
-        m1.setTimestamp(LocalDateTime.of(2023, 1, 30, 10, 30));
-        timeString = m1.getTimeString();
+        Assert.assertEquals(timeString, "posted 1 second ago");
+    }
+    @Test
+    public void testGetTimeString2(){
+        NewsFeed nf = new NewsFeed();
+        Message m1 = new Message("pippo123", "Hi, i'm Pippo!");
+        nf.addSubmission(m1);
+        m1.setTimestamp(LocalDateTime.now().minusSeconds(20));
+        String timeString = m1.getTimeString();
+        Assert.assertEquals(timeString, "posted 20 seconds ago");
+    }
+    @Test
+    public void testGetTimeString3(){
+        NewsFeed nf = new NewsFeed();
+        Message m1 = new Message("pippo123", "Hi, i'm Pippo!");
+        nf.addSubmission(m1);
+        m1.setTimestamp(LocalDateTime.now().minusMinutes(2));
+        String timeString = m1.getTimeString();
+        Assert.assertEquals(timeString, "posted 2 minutes ago");
+    }
+    @Test
+    public void testGetTimeString4(){
+        NewsFeed nf = new NewsFeed();
+        Message m1 = new Message("pippo123", "Hi, i'm Pippo!");
+        nf.addSubmission(m1);
+        m1.setTimestamp(LocalDateTime.now().minusHours(5));
+        String timeString = m1.getTimeString();
+        Assert.assertEquals(timeString, "posted 5 hours ago");
+    }
+    @Test
+    public void testGetTimeString5(){
+        NewsFeed nf = new NewsFeed();
+        Message m1 = new Message("pippo123", "Hi, i'm Pippo!");
+        nf.addSubmission(m1);
+        m1.setTimestamp(LocalDateTime.now().minusDays(25));
+        String timeString = m1.getTimeString();
+        Assert.assertEquals(timeString, "posted 25 days ago");
+    }
+    @Test
+    public void testGetTimeString6(){
+        NewsFeed nf = new NewsFeed();
+        Message m1 = new Message("pippo123", "Hi, i'm Pippo!");
+        nf.addSubmission(m1);
+        m1.setTimestamp(LocalDateTime.now().minusYears(1));
+        String timeString = m1.getTimeString();
         Assert.assertEquals(timeString, "posted 1 year ago");
     }
 }

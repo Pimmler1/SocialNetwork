@@ -54,34 +54,47 @@ public class Submission {
      */
     public String getTimeString(){
         long seconds = Duration.between(timestamp, LocalDateTime.now()).getSeconds();
-        if(seconds < 60){
+        if(seconds < 60){ //below 1 minute
             if(seconds > 1){
                 return "posted " + seconds + " seconds ago";
             } else {
                 return "posted " + seconds + " second ago";
             }
-        } else if(seconds < 60*60){
+        } else if(seconds < 60*60){ //below 1 hour
             long minutes = seconds/60;
             if(minutes > 1){
                 return "posted " + minutes + " minutes ago";
             } else {
                 return "posted " + minutes + " minute ago";
             }
-        } else if(seconds < 60*60*24){
+        } else if(seconds < 60*60*24){ //below 1 day
             long hours = seconds/60/60;
             if(hours > 1){
                 return "posted " + hours + " hours ago";
             } else {
                 return "posted " + hours + " hour ago";
             }
-        } else {
-            long days = seconds/60/60/60;
+        } else if(seconds < 60*60*24*30) { //below 1 month
+            long days = seconds/60/60/24;
             if(days > 1){
                 return "posted " + days + " days ago";
             } else {
                 return "posted " + days + " day ago";
             }
-
+        } else if(seconds < 60*60*24*356) { //below 1 year
+            long months = seconds/60/60/24/30;
+            if(months > 1){
+                return "posted " + months + " months ago";
+            } else {
+                return "posted " + months + " month ago";
+            }
+        } else {
+            long years = seconds/60/60/24/356;
+            if(years > 1){
+                return "posted " + years + " years ago";
+            } else {
+                return "posted " + years + " year ago";
+            }
         }
     }
     public String toString(){
