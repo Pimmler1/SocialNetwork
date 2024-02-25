@@ -15,6 +15,12 @@ public class NewsFeed {
     public void removeSubmission(int submissionIdx){
         submissionList.remove(submissionIdx);
     }
+
+    /**
+     * returns all submission of a given user
+     * @param username username of the user, as a String
+     * @return all submissions of a given user, as an ArrayList
+     */
     public ArrayList<Submission> getSubmissionsOfUser(String username){
         ArrayList<Submission> result = new ArrayList<>();
         for(Submission submission:submissionList){
@@ -64,10 +70,6 @@ public class NewsFeed {
      * @param username username of the user
      */
     public void printSubmissionOfUser(String username){
-        for(Submission submission:submissionList){
-            if(submission.getUsername().equals(username)){
-                System.out.println(submission);
-            }
-        }
+        System.out.println(this.getSubmissionsOfUser(username));
     }
 }
